@@ -1,13 +1,18 @@
 package com.mikeriv.ssui_2016.a2_collage_basecode;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.BaseVisualElement;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SolidBackDrop;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.VisualElement;
 import com.mikeriv.ssui_2016.a2_collage_basecode.tests.CollageViewTestHelper;
 import com.mikeriv.ssui_2016.a2_collage_basecode.views.CollageView;
@@ -35,10 +40,21 @@ public class CollageActivity extends AppCompatActivity {
         mCollageFrame = (FrameLayout) findViewById(R.id.frame_collage);
         if (mCollageFrame != null) {
             mCollageView = new CollageView(this);
+            mCollageView.setBackgroundColor(Color.WHITE);
+            ViewGroup.MarginLayoutParams lp = new ViewGroup.MarginLayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            lp.setMargins(0, 0, 0, 0);
+            mCollageView.setLayoutParams(lp);
             mCollageFrame.addView(mCollageView);
             // TODO create the root visual element of your collage view
             // using your created BaseVisualElement class and set it
-            // mCollageView.setChildVisualElement(rootVisualElement);
+            VisualElement rootVisualElement = new BaseVisualElement(50,50,500,800);
+            mCollageView.setChildVisualElement(rootVisualElement);
+            SimpleFrame simpleFrame = new SimpleFrame(100, 100, 100, 200);
+            SolidBackDrop solidBackDrop = new SolidBackDrop(300, 400, 100, 200,
+                    Color.BLUE);
+            mCollageView.getChildVisualElement().addChild(simpleFrame);
+            mCollageView.getChildVisualElement().addChild(solidBackDrop);
             refreshViewHierarchy();
         }
 

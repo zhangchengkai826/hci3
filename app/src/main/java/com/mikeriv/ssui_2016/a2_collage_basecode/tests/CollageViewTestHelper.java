@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.mikeriv.ssui_2016.a2_collage_basecode.R;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.VisualElement;
 import com.mikeriv.ssui_2016.a2_collage_basecode.views.CollageView;
 
@@ -120,24 +121,24 @@ public abstract class CollageViewTestHelper {
         // SimpleFrame, SolidBackDrop, IconImage, NinePartImage, TextVisualElement
 
         Resources res = context.getResources();
-//        if(placeElementsAtOrigin){
-//            rootVisualElement.addChild(new SimpleFrame(0, 0, 100, 100));
+        if(placeElementsAtOrigin){
+            rootVisualElement.addChild(new SimpleFrame(0, 0, 100, 100));
 //            rootVisualElement.addChild(new SolidBackDrop(0, 0, 100, 100, Color.MAGENTA));
 //            rootVisualElement.addChild(new IconImage(0, 0, BitmapFactory.decodeResource(res, R.drawable.ic_noun_cat)));
 //            Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.bluebutton);
 //            NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
 //            rootVisualElement.addChild(new NinePartImage(0, 0, 40, 40, patches));
 //            rootVisualElement.addChild(new TextVisualElement(0, 0, TEST_TEXT, Typeface.DEFAULT_BOLD, 25f));
-//        }
-//        else{
-//            rootVisualElement.addChild(new SimpleFrame(10, 10, 40, 40));
+        }
+        else{
+            rootVisualElement.addChild(new SimpleFrame(10, 10, 40, 40));
 //            rootVisualElement.addChild(new SolidBackDrop(10, 60, 40, 40, Color.MAGENTA));
 //            rootVisualElement.addChild(new IconImage(10, 110, BitmapFactory.decodeResource(res, R.drawable.ic_noun_robot2)));
 //            Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.bluebutton);
 //            NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
 //            rootVisualElement.addChild(new NinePartImage(60, 10, 400, 40, patches));
 //            rootVisualElement.addChild(new TextVisualElement(60, 60, TEST_TEXT, Typeface.DEFAULT_BOLD, 25f));
-//        }
+        }
     }
 
     private static final void runAPITest1(CollageView collageView, Context context) {

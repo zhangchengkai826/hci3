@@ -4,11 +4,12 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import java.util.Collections;
+public class SolidBackDrop extends BaseVisualElement {
+    int color = Color.BLACK;
 
-public class SimpleFrame extends BaseVisualElement {
-    public SimpleFrame(float x, float y, float w, float h) {
+    public SolidBackDrop(float x, float y, float w, float h, int color) {
         super(x, y, w, h);
+        this.color = color;
     }
 
     /* (non-Javadoc)
@@ -16,9 +17,8 @@ public class SimpleFrame extends BaseVisualElement {
      */
     @Override
     public void draw(Canvas onCanvas) {
-        paint.setColor(Color.BLACK);
-        paint.setStrokeWidth(1);
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(color);
+        paint.setStyle(Paint.Style.FILL);
         onCanvas.drawRect(1, 1, getW(), getH(), paint);
 
         super.draw(onCanvas); // propagate downwards, just like super does
