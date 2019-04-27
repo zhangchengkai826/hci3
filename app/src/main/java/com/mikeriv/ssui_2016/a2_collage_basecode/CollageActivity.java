@@ -1,5 +1,6 @@
 package com.mikeriv.ssui_2016.a2_collage_basecode;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.BaseVisualElement;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SolidBackDrop;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.VisualElement;
@@ -53,8 +55,11 @@ public class CollageActivity extends AppCompatActivity {
             SimpleFrame simpleFrame = new SimpleFrame(100, 100, 100, 200);
             SolidBackDrop solidBackDrop = new SolidBackDrop(300, 400, 100, 200,
                     Color.BLUE);
+            IconImage iconImage = new IconImage(300, 650, BitmapFactory.decodeResource(
+                    getApplicationContext().getResources(), R.drawable.ic_noun_cat));
             mCollageView.getChildVisualElement().addChild(simpleFrame);
             mCollageView.getChildVisualElement().addChild(solidBackDrop);
+            mCollageView.getChildVisualElement().addChild(iconImage);
             refreshViewHierarchy();
         }
 

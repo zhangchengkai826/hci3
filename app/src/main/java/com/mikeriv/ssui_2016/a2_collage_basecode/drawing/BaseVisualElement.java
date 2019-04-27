@@ -60,7 +60,8 @@ public class BaseVisualElement extends PrebaseVisualElement {
      */
     @Override
     public void setW(float w) {
-        this.w = w;
+        if(!sizeIsIntrinsic())
+            this.w = w;
     }
 
     /* (non-Javadoc)
@@ -68,7 +69,8 @@ public class BaseVisualElement extends PrebaseVisualElement {
      */
     @Override
     public void setH(float h) {
-        this.h = h;
+        if(!sizeIsIntrinsic())
+            this.h = h;
     }
 
     /* (non-Javadoc)
