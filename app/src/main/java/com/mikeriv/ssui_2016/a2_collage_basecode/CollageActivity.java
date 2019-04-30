@@ -1,7 +1,9 @@
 package com.mikeriv.ssui_2016.a2_collage_basecode;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.NinePatch;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +15,7 @@ import android.widget.FrameLayout;
 
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.BaseVisualElement;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.NinePartImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SolidBackDrop;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.VisualElement;
@@ -57,9 +60,15 @@ public class CollageActivity extends AppCompatActivity {
                     Color.BLUE);
             IconImage iconImage = new IconImage(300, 650, BitmapFactory.decodeResource(
                     getApplicationContext().getResources(), R.drawable.ic_noun_cat));
+            Bitmap bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+                    R.drawable.bluebutton);
+            NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
+            NinePartImage ninePartImage = new NinePartImage(300, 800, 200, 400,
+                    patches);
             mCollageView.getChildVisualElement().addChild(simpleFrame);
             mCollageView.getChildVisualElement().addChild(solidBackDrop);
             mCollageView.getChildVisualElement().addChild(iconImage);
+            mCollageView.getChildVisualElement().addChild(ninePartImage);
             refreshViewHierarchy();
         }
 
