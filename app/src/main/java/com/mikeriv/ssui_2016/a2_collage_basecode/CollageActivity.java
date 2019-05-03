@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.BaseVisualElement;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.NinePartImage;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.PileLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SolidBackDrop;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.TextVisualElement;
@@ -69,11 +70,13 @@ public class CollageActivity extends AppCompatActivity {
                     patches);
             TextVisualElement textVisualElement = new TextVisualElement(100, 150, "Wow!",
                     Typeface.DEFAULT_BOLD, 25f);
-            mCollageView.getChildVisualElement().addChild(simpleFrame);
-            mCollageView.getChildVisualElement().addChild(solidBackDrop);
-            mCollageView.getChildVisualElement().addChild(iconImage);
-            mCollageView.getChildVisualElement().addChild(ninePartImage);
-            mCollageView.getChildVisualElement().addChild(textVisualElement);
+            PileLayout pileLayout = new PileLayout(100, 100, 120,150);
+            mCollageView.getChildVisualElement().addChild(pileLayout);
+            pileLayout.addChild(simpleFrame);
+            pileLayout.addChild(solidBackDrop);
+            pileLayout.addChild(iconImage);
+            pileLayout.addChild(ninePartImage);
+            pileLayout.addChild(textVisualElement);
             refreshViewHierarchy();
         }
 
