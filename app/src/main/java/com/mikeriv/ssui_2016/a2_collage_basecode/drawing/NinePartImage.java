@@ -6,12 +6,14 @@ import android.graphics.NinePatch;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 
+import com.mikeriv.ssui_2016.a2_collage_basecode.CollageActivity;
+
 public class NinePartImage extends BaseVisualElement {
-    NinePatchDrawable drawable = null;
+    private NinePatch patchs = null;
 
     public NinePartImage(float x, float y, float w, float h, NinePatch patches) {
         super(x, y, w, h);
-        this.drawable = new NinePatchDrawable(patches);
+        this.patchs = patches;
     }
 
     /* (non-Javadoc)
@@ -19,8 +21,7 @@ public class NinePartImage extends BaseVisualElement {
      */
     @Override
     public void draw(Canvas onCanvas) {
-        drawable.setBounds(new Rect(0, 0, (int)w, (int)h));
-        drawable.draw(onCanvas);
+        patchs.draw(onCanvas, new Rect(0, 0, (int)w, (int)h), paint);
 
         super.draw(onCanvas); // propagate downwards, just like super does
     }

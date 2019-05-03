@@ -53,17 +53,17 @@ public class CollageActivity extends AppCompatActivity {
             mCollageFrame.addView(mCollageView);
             // TODO create the root visual element of your collage view
             // using your created BaseVisualElement class and set it
-            VisualElement rootVisualElement = new BaseVisualElement(50,50,500,800);
+            VisualElement rootVisualElement = new BaseVisualElement(50,50,800,1500);
             mCollageView.setChildVisualElement(rootVisualElement);
             SimpleFrame simpleFrame = new SimpleFrame(100, 100, 100, 200);
             SolidBackDrop solidBackDrop = new SolidBackDrop(300, 400, 100, 200,
-                    Color.BLUE);
+                    Color.GREEN);
             IconImage iconImage = new IconImage(300, 650, BitmapFactory.decodeResource(
-                    getApplicationContext().getResources(), R.drawable.ic_noun_cat));
-            Bitmap bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+                    getResources(), R.drawable.ic_noun_cat));
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                     R.drawable.bluebutton);
             NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
-            NinePartImage ninePartImage = new NinePartImage(300, 800, 200, 400,
+            NinePartImage ninePartImage = new NinePartImage(100, 500, 200, 400,
                     patches);
             mCollageView.getChildVisualElement().addChild(simpleFrame);
             mCollageView.getChildVisualElement().addChild(solidBackDrop);
