@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.NinePatch;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +19,7 @@ import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.NinePartImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SolidBackDrop;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.TextVisualElement;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.VisualElement;
 import com.mikeriv.ssui_2016.a2_collage_basecode.tests.CollageViewTestHelper;
 import com.mikeriv.ssui_2016.a2_collage_basecode.views.CollageView;
@@ -55,7 +57,7 @@ public class CollageActivity extends AppCompatActivity {
             // using your created BaseVisualElement class and set it
             VisualElement rootVisualElement = new BaseVisualElement(50,50,800,1500);
             mCollageView.setChildVisualElement(rootVisualElement);
-            SimpleFrame simpleFrame = new SimpleFrame(100, 100, 100, 200);
+            SimpleFrame simpleFrame = new SimpleFrame(100, 150, 100, 200);
             SolidBackDrop solidBackDrop = new SolidBackDrop(300, 400, 100, 200,
                     Color.GREEN);
             IconImage iconImage = new IconImage(300, 650, BitmapFactory.decodeResource(
@@ -65,10 +67,13 @@ public class CollageActivity extends AppCompatActivity {
             NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
             NinePartImage ninePartImage = new NinePartImage(100, 500, 200, 400,
                     patches);
+            TextVisualElement textVisualElement = new TextVisualElement(100, 150, "Wow!",
+                    Typeface.DEFAULT_BOLD, 25f);
             mCollageView.getChildVisualElement().addChild(simpleFrame);
             mCollageView.getChildVisualElement().addChild(solidBackDrop);
             mCollageView.getChildVisualElement().addChild(iconImage);
             mCollageView.getChildVisualElement().addChild(ninePartImage);
+            mCollageView.getChildVisualElement().addChild(textVisualElement);
             refreshViewHierarchy();
         }
 
