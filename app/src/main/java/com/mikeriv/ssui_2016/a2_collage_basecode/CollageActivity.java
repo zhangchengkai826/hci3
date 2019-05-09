@@ -15,9 +15,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.BaseVisualElement;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.ColumnLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.NinePartImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.PileLayout;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.RowLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SolidBackDrop;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.TextVisualElement;
@@ -68,9 +70,9 @@ public class CollageActivity extends AppCompatActivity {
             NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
             NinePartImage ninePartImage = new NinePartImage(100, 500, 200, 400,
                     patches);
-            TextVisualElement textVisualElement = new TextVisualElement(100, 150, "Wow!",
-                    Typeface.DEFAULT_BOLD, 25f);
-            PileLayout pileLayout = new PileLayout(100, 100, 120,150);
+            TextVisualElement textVisualElement = new TextVisualElement(100, 150,
+                    "A long text is written here!", Typeface.DEFAULT_BOLD, 25f);
+            RowLayout pileLayout = new RowLayout(100, 100, 600,300);
             mCollageView.getChildVisualElement().addChild(pileLayout);
             pileLayout.addChild(simpleFrame);
             pileLayout.addChild(solidBackDrop);
