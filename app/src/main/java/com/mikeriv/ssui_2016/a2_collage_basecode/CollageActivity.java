@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.BaseVisualElement;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.CircleLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.ColumnLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.NinePartImage;
@@ -58,21 +59,22 @@ public class CollageActivity extends AppCompatActivity {
             mCollageFrame.addView(mCollageView);
             // TODO create the root visual element of your collage view
             // using your created BaseVisualElement class and set it
-            VisualElement rootVisualElement = new BaseVisualElement(50,50,800,1500);
+            VisualElement rootVisualElement = new BaseVisualElement(50,50,1600,3000);
             mCollageView.setChildVisualElement(rootVisualElement);
-            SimpleFrame simpleFrame = new SimpleFrame(100, 150, 100, 200);
-            SolidBackDrop solidBackDrop = new SolidBackDrop(300, 400, 100, 200,
+            SimpleFrame simpleFrame = new SimpleFrame(100, 150, 100, 100);
+            SolidBackDrop solidBackDrop = new SolidBackDrop(300, 400, 100, 100,
                     Color.GREEN);
             IconImage iconImage = new IconImage(300, 650, BitmapFactory.decodeResource(
                     getResources(), R.drawable.ic_noun_cat));
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                     R.drawable.bluebutton);
             NinePatch patches = new NinePatch(bitmap, bitmap.getNinePatchChunk(), null);
-            NinePartImage ninePartImage = new NinePartImage(100, 500, 200, 400,
+            NinePartImage ninePartImage = new NinePartImage(100, 500, 200, 200,
                     patches);
             TextVisualElement textVisualElement = new TextVisualElement(100, 150,
-                    "A long text is written here!", Typeface.DEFAULT_BOLD, 25f);
-            RowLayout pileLayout = new RowLayout(100, 100, 600,300);
+                    "Wow!", Typeface.DEFAULT_BOLD, 25f);
+            CircleLayout pileLayout = new CircleLayout(100, 100, 600,600,
+                    300, 300, 200);
             mCollageView.getChildVisualElement().addChild(pileLayout);
             pileLayout.addChild(simpleFrame);
             pileLayout.addChild(solidBackDrop);
