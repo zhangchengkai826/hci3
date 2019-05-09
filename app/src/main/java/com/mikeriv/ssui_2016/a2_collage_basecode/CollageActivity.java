@@ -19,6 +19,7 @@ import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.CircleLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.ColumnLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.IconImage;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.NinePartImage;
+import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.OvalClip;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.PileLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.RowLayout;
 import com.mikeriv.ssui_2016.a2_collage_basecode.drawing.SimpleFrame;
@@ -73,9 +74,10 @@ public class CollageActivity extends AppCompatActivity {
                     patches);
             TextVisualElement textVisualElement = new TextVisualElement(100, 150,
                     "Wow!", Typeface.DEFAULT_BOLD, 25f);
-            CircleLayout pileLayout = new CircleLayout(100, 100, 600,600,
-                    300, 300, 200);
-            mCollageView.getChildVisualElement().addChild(pileLayout);
+            PileLayout pileLayout = new PileLayout(0, 0, 100, 100);
+            OvalClip ovalClip = new OvalClip(100, 100, 100, 100);
+            ovalClip.addChild(pileLayout);
+            mCollageView.getChildVisualElement().addChild(ovalClip);
             pileLayout.addChild(simpleFrame);
             pileLayout.addChild(solidBackDrop);
             pileLayout.addChild(iconImage);
