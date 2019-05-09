@@ -118,6 +118,8 @@ public class BaseVisualElement extends PrebaseVisualElement {
      */
     @Override
     public VisualElement getChildAt(int index) {
+        if(index < 0 || index >= children.size())
+            return null;
         return children.get(index);
     }
 
@@ -126,6 +128,7 @@ public class BaseVisualElement extends PrebaseVisualElement {
      */
     @Override
     public int findChild(VisualElement child) {
+        if(child == null)return -1;
         return children.indexOf(child);
     }
 
@@ -190,6 +193,8 @@ public class BaseVisualElement extends PrebaseVisualElement {
     @Override
     public void moveChildLater(VisualElement child) {
         int index = findChild(child);
+        if(index == -1)
+            return;
         Collections.swap(children, index, index+1);
     }
 
